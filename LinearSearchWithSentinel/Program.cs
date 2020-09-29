@@ -1,0 +1,39 @@
+﻿using System;
+
+namespace LinearSearchWithSentinel
+{
+    class Program
+    {
+        public static int Search(int[] a,int n, int searchValue)
+        {
+            a[n] = searchValue;
+            int i = 0;
+            while (searchValue != a[i])
+                i++;
+            if (i < n)
+                return i;
+            else
+                return -1;
+
+        }
+        static void Main(string[] args)
+        {
+            int i, n, searchValue, index;
+            int[] a = new int[100];
+
+            Console.Write("Enter the number of elements : ");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the elements - ");
+            for (i = 0; i < n; i++)
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the search value : ");
+            searchValue = Convert.ToInt32(Console.ReadLine());
+            index = Search(a, n, searchValue);
+            if (index == -1)
+                Console.WriteLine(" value " + searchValue + " not present in the array\n ");
+            else
+                Console.WriteLine(" value " + searchValue + " present at index " + index);
+        }
+    }
+}
